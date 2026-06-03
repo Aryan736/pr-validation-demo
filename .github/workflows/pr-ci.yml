@@ -1,0 +1,24 @@
+name: Pull Request Validation CI
+
+on: 
+  pull_request:
+    branches:
+      - main
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout pull_request code
+      - uses: actions/checkout@4
+
+      - name: Setup Node.js
+      - uses: actions/setup-node@4
+        with:
+          node-version: 18
+        
+      - name: Install all Dependencies 
+      - uses: npm install
+
+      - name: Run automated Tests
+      - run: npm tests
