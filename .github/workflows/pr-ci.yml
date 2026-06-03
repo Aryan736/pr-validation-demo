@@ -10,15 +10,15 @@ jobs:
 
     steps:
       - name: Checkout pull_request code
-      - uses: actions/checkout@4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-      - uses: actions/setup-node@4
+        uses: actions/setup-node@v4
         with:
           node-version: 18
         
       - name: Install all Dependencies 
-      - uses: npm install
+        uses: npm install
 
       - name: Run automated Tests
-      - run: npm tests
+        run: npm test
